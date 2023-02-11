@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
                       steps {
                 git url: 'https://github.com/bezracda/JavaScriptMasterHateThisTask.git'
-                sh 'ls -la'
-                echo 'Hello, Jenkins'
+                sh './mvnw package'
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
     }
